@@ -8,8 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
