@@ -16,6 +16,8 @@
 		0596DD0921F3BE6300201C1C /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0596DD0621F3BE6200201C1C /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0596DD0A21F3BE6300201C1C /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596DD0721F3BE6300201C1C /* VisualRecognitionV3.framework */; };
 		0596DD0B21F3BE6300201C1C /* VisualRecognitionV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0596DD0721F3BE6300201C1C /* VisualRecognitionV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0596DD0E21F3D8EE00201C1C /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0596DD0D21F3D8EE00201C1C /* RestKit.framework */; };
+		0596DD0F21F3D8EE00201C1C /* RestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0596DD0D21F3D8EE00201C1C /* RestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,7 @@
 			files = (
 				0596DD0921F3BE6300201C1C /* SVProgressHUD.framework in Embed Frameworks */,
 				0596DD0B21F3BE6300201C1C /* VisualRecognitionV3.framework in Embed Frameworks */,
+				0596DD0F21F3D8EE00201C1C /* RestKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +46,7 @@
 		0596DD0021F3BDDA00201C1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0596DD0621F3BE6200201C1C /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = "<group>"; };
 		0596DD0721F3BE6300201C1C /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		0596DD0D21F3D8EE00201C1C /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RestKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			files = (
 				0596DD0821F3BE6300201C1C /* SVProgressHUD.framework in Frameworks */,
 				0596DD0A21F3BE6300201C1C /* VisualRecognitionV3.framework in Frameworks */,
+				0596DD0E21F3D8EE00201C1C /* RestKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 		0596DCE821F3BDD900201C1C = {
 			isa = PBXGroup;
 			children = (
+				0596DD0D21F3D8EE00201C1C /* RestKit.framework */,
 				0596DD0621F3BE6200201C1C /* SVProgressHUD.framework */,
 				0596DD0721F3BE6300201C1C /* VisualRecognitionV3.framework */,
 				0596DCF321F3BDD900201C1C /* SeeFood */,

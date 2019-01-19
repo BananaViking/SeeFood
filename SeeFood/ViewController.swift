@@ -10,16 +10,32 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    let imagePicker = UIImagePickerController()
     
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
+        imagePicker.sourceType = .savedPhotosAlbum // change to camera later
+        imagePicker.allowsEditing = false
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        imagePicker.delegate = self
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = image
+            
+            imagePicker.dismiss(animated: true, completion: nil)
+        } else {
+            print("There was an error picking the image.")
+        }
     }
 
 
