@@ -34,8 +34,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageView.image = image
+            cameraButton.isEnabled = false
             
+            imageView.image = image
             imagePicker.dismiss(animated: true, completion: nil)
             
             let visualRecognition = VisualRecognition(version: version, apiKey: apiKey)
@@ -52,6 +53,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         self.classificationResults.append((classes?[index].className)!)
                     }
                     print(self.classificationResults)
+                    
+                    DispatchQueue.main.async {
+                        self.cameraButton.isEnabled = true
+                    }
                     
                     if self.classificationResults.contains("hotdog") {
                         DispatchQueue.main.async {
