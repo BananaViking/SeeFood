@@ -8,6 +8,7 @@
 
 import UIKit
 import VisualRecognitionV3
+import SVProgressHUD
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -35,6 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             cameraButton.isEnabled = false
+            SVProgressHUD.show()
             
             imageView.image = image
             imagePicker.dismiss(animated: true, completion: nil)
@@ -56,15 +58,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                     DispatchQueue.main.async {
                         self.cameraButton.isEnabled = true
+                        SVProgressHUD.dismiss()
                     }
                     
                     if self.classificationResults.contains("hotdog") {
                         DispatchQueue.main.async {
                             self.navigationItem.title = "Hotdog!"
+                            self.navigationController?.navigationBar.barTintColor = UIColor.green
+                            self.navigationController?.navigationBar.isTranslucent = false
                         }
                     } else {
                         DispatchQueue.main.async {
                             self.navigationItem.title = "Not Hotdog!"
+                            self.navigationController?.navigationBar.barTintColor = UIColor.red
+                            self.navigationController?.navigationBar.isTranslucent = false
                         }
                     }
                 }
