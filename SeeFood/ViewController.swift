@@ -75,7 +75,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         }
                     }
                 }
-            }else {
+            } else {
                 print("eror compressing image")
             }
         } else {
