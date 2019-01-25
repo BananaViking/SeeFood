@@ -21,8 +21,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func cameraTapped(_ sender: UIBarButtonItem) {
-        imagePicker.sourceType = .savedPhotosAlbum // change to camera later
-        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
         
         present(imagePicker, animated: true, completion: nil)
     }
@@ -61,19 +61,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         SVProgressHUD.dismiss()
                     }
                     
-                    if self.classificationResults.contains("hotdog") {
-                        DispatchQueue.main.async {
-                            self.navigationItem.title = "Hotdog!"
-                            self.navigationController?.navigationBar.barTintColor = UIColor.green
-                            self.navigationController?.navigationBar.isTranslucent = false
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.navigationItem.title = "Not Hotdog!"
-                            self.navigationController?.navigationBar.barTintColor = UIColor.red
-                            self.navigationController?.navigationBar.isTranslucent = false
-                        }
-                    }
+                    let title = "Holmes, I have deduced this picture possibly contains:"
+                    let message = self.classificationResults
+                    let alert = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Elementary!", style: .cancel, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    //                    if self.classificationResults.contains("hotdog") {
+                    //                        DispatchQueue.main.async {
+                    //                            self.navigationItem.title = "Hotdog!"
+                    //                            self.navigationController?.navigationBar.barTintColor = UIColor.green
+                    //                            self.navigationController?.navigationBar.isTranslucent = false
+                    //                        }
+                    //                    } else {
+                    //                        DispatchQueue.main.async {
+                    //                            self.navigationItem.title = "Not Hotdog!"
+                    //                            self.navigationController?.navigationBar.barTintColor = UIColor.red
+                    //                            self.navigationController?.navigationBar.isTranslucent = false
+                    //                        }
+                    //                    }
                 }
             } else {
                 print("eror compressing image")
